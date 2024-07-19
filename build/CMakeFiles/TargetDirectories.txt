@@ -1,0 +1,3 @@
+/home/zzc/simulator/build/CMakeFiles/rebuild_cache.dir
+/home/zzc/simulator/build/CMakeFiles/edit_cache.dir
+/home/zzc/simulator/build/CMakeFiles/main.dir
