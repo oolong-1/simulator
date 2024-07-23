@@ -57,9 +57,22 @@ include CMakeFiles/main.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/main.dir/flags.make
 
+CMakeFiles/main.dir/main.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/main.cpp.o: ../main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/main.cpp.o -c /home/zzc/simulator/main.cpp
+
+CMakeFiles/main.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zzc/simulator/main.cpp > CMakeFiles/main.dir/main.cpp.i
+
+CMakeFiles/main.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zzc/simulator/main.cpp -o CMakeFiles/main.dir/main.cpp.s
+
 CMakeFiles/main.dir/src/activation.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/activation.cpp.o: ../src/activation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/src/activation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/activation.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/activation.cpp.o -c /home/zzc/simulator/src/activation.cpp
 
 CMakeFiles/main.dir/src/activation.cpp.i: cmake_force
@@ -70,9 +83,22 @@ CMakeFiles/main.dir/src/activation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/activation.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zzc/simulator/src/activation.cpp -o CMakeFiles/main.dir/src/activation.cpp.s
 
+CMakeFiles/main.dir/src/adder_tree.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/adder_tree.cpp.o: ../src/adder_tree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/adder_tree.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/adder_tree.cpp.o -c /home/zzc/simulator/src/adder_tree.cpp
+
+CMakeFiles/main.dir/src/adder_tree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/adder_tree.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zzc/simulator/src/adder_tree.cpp > CMakeFiles/main.dir/src/adder_tree.cpp.i
+
+CMakeFiles/main.dir/src/adder_tree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/adder_tree.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zzc/simulator/src/adder_tree.cpp -o CMakeFiles/main.dir/src/adder_tree.cpp.s
+
 CMakeFiles/main.dir/src/batch_normalization.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/batch_normalization.cpp.o: ../src/batch_normalization.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/batch_normalization.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/batch_normalization.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/batch_normalization.cpp.o -c /home/zzc/simulator/src/batch_normalization.cpp
 
 CMakeFiles/main.dir/src/batch_normalization.cpp.i: cmake_force
@@ -83,9 +109,22 @@ CMakeFiles/main.dir/src/batch_normalization.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/batch_normalization.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zzc/simulator/src/batch_normalization.cpp -o CMakeFiles/main.dir/src/batch_normalization.cpp.s
 
+CMakeFiles/main.dir/src/cim_array.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/cim_array.cpp.o: ../src/cim_array.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/cim_array.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/cim_array.cpp.o -c /home/zzc/simulator/src/cim_array.cpp
+
+CMakeFiles/main.dir/src/cim_array.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/cim_array.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zzc/simulator/src/cim_array.cpp > CMakeFiles/main.dir/src/cim_array.cpp.i
+
+CMakeFiles/main.dir/src/cim_array.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/cim_array.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zzc/simulator/src/cim_array.cpp -o CMakeFiles/main.dir/src/cim_array.cpp.s
+
 CMakeFiles/main.dir/src/convolution.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/convolution.cpp.o: ../src/convolution.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/convolution.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/convolution.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/convolution.cpp.o -c /home/zzc/simulator/src/convolution.cpp
 
 CMakeFiles/main.dir/src/convolution.cpp.i: cmake_force
@@ -98,7 +137,7 @@ CMakeFiles/main.dir/src/convolution.cpp.s: cmake_force
 
 CMakeFiles/main.dir/src/fully_connected.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/fully_connected.cpp.o: ../src/fully_connected.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/fully_connected.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/fully_connected.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/fully_connected.cpp.o -c /home/zzc/simulator/src/fully_connected.cpp
 
 CMakeFiles/main.dir/src/fully_connected.cpp.i: cmake_force
@@ -111,7 +150,7 @@ CMakeFiles/main.dir/src/fully_connected.cpp.s: cmake_force
 
 CMakeFiles/main.dir/src/pooling.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/pooling.cpp.o: ../src/pooling.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/pooling.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/pooling.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/pooling.cpp.o -c /home/zzc/simulator/src/pooling.cpp
 
 CMakeFiles/main.dir/src/pooling.cpp.i: cmake_force
@@ -124,7 +163,7 @@ CMakeFiles/main.dir/src/pooling.cpp.s: cmake_force
 
 CMakeFiles/main.dir/src/preprocess.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/preprocess.cpp.o: ../src/preprocess.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/preprocess.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/src/preprocess.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/preprocess.cpp.o -c /home/zzc/simulator/src/preprocess.cpp
 
 CMakeFiles/main.dir/src/preprocess.cpp.i: cmake_force
@@ -135,39 +174,30 @@ CMakeFiles/main.dir/src/preprocess.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/preprocess.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zzc/simulator/src/preprocess.cpp -o CMakeFiles/main.dir/src/preprocess.cpp.s
 
-CMakeFiles/main.dir/main.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/main.cpp.o -c /home/zzc/simulator/main.cpp
-
-CMakeFiles/main.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zzc/simulator/main.cpp > CMakeFiles/main.dir/main.cpp.i
-
-CMakeFiles/main.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zzc/simulator/main.cpp -o CMakeFiles/main.dir/main.cpp.s
-
 # Object files for target main
 main_OBJECTS = \
+"CMakeFiles/main.dir/main.cpp.o" \
 "CMakeFiles/main.dir/src/activation.cpp.o" \
+"CMakeFiles/main.dir/src/adder_tree.cpp.o" \
 "CMakeFiles/main.dir/src/batch_normalization.cpp.o" \
+"CMakeFiles/main.dir/src/cim_array.cpp.o" \
 "CMakeFiles/main.dir/src/convolution.cpp.o" \
 "CMakeFiles/main.dir/src/fully_connected.cpp.o" \
 "CMakeFiles/main.dir/src/pooling.cpp.o" \
-"CMakeFiles/main.dir/src/preprocess.cpp.o" \
-"CMakeFiles/main.dir/main.cpp.o"
+"CMakeFiles/main.dir/src/preprocess.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
+../bin/main: CMakeFiles/main.dir/main.cpp.o
 ../bin/main: CMakeFiles/main.dir/src/activation.cpp.o
+../bin/main: CMakeFiles/main.dir/src/adder_tree.cpp.o
 ../bin/main: CMakeFiles/main.dir/src/batch_normalization.cpp.o
+../bin/main: CMakeFiles/main.dir/src/cim_array.cpp.o
 ../bin/main: CMakeFiles/main.dir/src/convolution.cpp.o
 ../bin/main: CMakeFiles/main.dir/src/fully_connected.cpp.o
 ../bin/main: CMakeFiles/main.dir/src/pooling.cpp.o
 ../bin/main: CMakeFiles/main.dir/src/preprocess.cpp.o
-../bin/main: CMakeFiles/main.dir/main.cpp.o
 ../bin/main: CMakeFiles/main.dir/build.make
 ../bin/main: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.4.2.0
 ../bin/main: /usr/lib/x86_64-linux-gnu/libopencv_aruco.so.4.2.0
@@ -218,7 +248,7 @@ main_EXTERNAL_OBJECTS =
 ../bin/main: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.2.0
 ../bin/main: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0
 ../bin/main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable ../bin/main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zzc/simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable ../bin/main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -177,6 +177,33 @@ src/activation.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/activation.cpp.s
 .PHONY : src/activation.cpp.s
 
+src/adder_tree.o: src/adder_tree.cpp.o
+
+.PHONY : src/adder_tree.o
+
+# target to build an object file
+src/adder_tree.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/adder_tree.cpp.o
+.PHONY : src/adder_tree.cpp.o
+
+src/adder_tree.i: src/adder_tree.cpp.i
+
+.PHONY : src/adder_tree.i
+
+# target to preprocess a source file
+src/adder_tree.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/adder_tree.cpp.i
+.PHONY : src/adder_tree.cpp.i
+
+src/adder_tree.s: src/adder_tree.cpp.s
+
+.PHONY : src/adder_tree.s
+
+# target to generate assembly for a file
+src/adder_tree.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/adder_tree.cpp.s
+.PHONY : src/adder_tree.cpp.s
+
 src/batch_normalization.o: src/batch_normalization.cpp.o
 
 .PHONY : src/batch_normalization.o
@@ -203,6 +230,33 @@ src/batch_normalization.s: src/batch_normalization.cpp.s
 src/batch_normalization.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/batch_normalization.cpp.s
 .PHONY : src/batch_normalization.cpp.s
+
+src/cim_array.o: src/cim_array.cpp.o
+
+.PHONY : src/cim_array.o
+
+# target to build an object file
+src/cim_array.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/cim_array.cpp.o
+.PHONY : src/cim_array.cpp.o
+
+src/cim_array.i: src/cim_array.cpp.i
+
+.PHONY : src/cim_array.i
+
+# target to preprocess a source file
+src/cim_array.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/cim_array.cpp.i
+.PHONY : src/cim_array.cpp.i
+
+src/cim_array.s: src/cim_array.cpp.s
+
+.PHONY : src/cim_array.s
+
+# target to generate assembly for a file
+src/cim_array.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/cim_array.cpp.s
+.PHONY : src/cim_array.cpp.s
 
 src/convolution.o: src/convolution.cpp.o
 
@@ -327,9 +381,15 @@ help:
 	@echo "... src/activation.o"
 	@echo "... src/activation.i"
 	@echo "... src/activation.s"
+	@echo "... src/adder_tree.o"
+	@echo "... src/adder_tree.i"
+	@echo "... src/adder_tree.s"
 	@echo "... src/batch_normalization.o"
 	@echo "... src/batch_normalization.i"
 	@echo "... src/batch_normalization.s"
+	@echo "... src/cim_array.o"
+	@echo "... src/cim_array.i"
+	@echo "... src/cim_array.s"
 	@echo "... src/convolution.o"
 	@echo "... src/convolution.i"
 	@echo "... src/convolution.s"

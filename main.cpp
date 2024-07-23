@@ -4,6 +4,7 @@
 #include "include/pooling.h"
 #include "include/batch_normalization.h"
 #include "include/fully_connected.h"
+#include "include/preprocess.h"
 #include <iostream>
 #include <vector>
 
@@ -30,9 +31,32 @@ void printVector(const std::vector<float>& vec) {
 
 int main() {
     // 定义卷积层参数
-    Conv2DParams conv_params = {3, 1, 3, 1, 1};
+    Conv2DParams conv_params = {3, 1, 3, 1, 1}; // 输入通道数、输出通道数、卷积核大小、步长、填充
     Convolution conv;
     conv.setParams(conv_params);
+
+    // 定义卷积层权重和偏置
+    std::vector<std::vector<std::vector<std::vector<float>>>> weights = {
+        {
+            {
+                {1, 0, -1},
+                {1, 0, -1},
+                {1, 0, -1}
+            },
+            {
+                {0, 1, 0},
+                {0, 1, 0},
+                {0, 1, 0}
+            },
+            {
+                {-1, 0, 1},
+                {-1, 0, 1},
+                {-1, 0, 1}
+            }
+        }
+    };
+
+    std::vector<float> biases = {0};
 
     // 定义激活函数
     Activation activation;
@@ -56,8 +80,11 @@ int main() {
         {0.9f, 1.0f, 1.1f, 1.2f}
     };
     std::vector<float> fc_biases = {0.1f, 0.2f, 0.3f};
-    FullyConnected fully_connected;
+    FullyConnected fully_connected(3);
     fully_connected.setParams(fc_weights, fc_biases);
+
+    // 定义前处理模块
+    Preprocess preprocess(2, 1); // 例如tile_size为2，pad_value为1
 
     // 输入数据
     std::vector<std::vector<std::vector<float>>> input = {
@@ -81,42 +108,36 @@ int main() {
         }
     };
 
-    // 权重数据
-    std::vector<std::vector<std::vector<std::vector<float>>>> weights = {
-        {
-            {
-                {1, 0, -1},
-                {1, 0, -1},
-                {1, 0, -1}
-            },
-            {
-                {0, 1, 0},
-                {0, 1, 0},
-                {0, 1, 0}
-            },
-            {
-                {-1, 0, 1},
-                {-1, 0, 1},
-                {-1, 0, 1}
-            }
-        }
-    };
+    // 前处理：tile读取控制
+    std::vector<std::vector<float>> tiled_output;
+    preprocess.tileReadControl(input[0], tiled_output);
 
-    // 偏置数据
-    std::vector<float> biases = {0};
+    // 前处理：pad控制
+    std::vector<std::vector<float>> padded_output;
+    preprocess.padControl(tiled_output, padded_output);
 
-    // 输出数据
-    std::vector<std::vector<std::vector<float>>> output;
+    // 前处理：line buffer读写控制
+    std::vector<std::vector<float>> buffer_output;
+    preprocess.lineBufferReadWriteControl(padded_output, buffer_output);
+
+    // 前处理：划窗数据读取控制
+    std::vector<std::vector<std::vector<float>>> windowed_output;
+    preprocess.slidingWindowReadControl(buffer_output, windowed_output);
+
+    // 前处理：数据格式变换
+    std::vector<std::vector<float>> transformed_output;
+    preprocess.dataFormatTransform(buffer_output, transformed_output);
 
     // 执行卷积操作
-    conv.execute(input, weights, biases, output);
+    std::vector<std::vector<std::vector<float>>> conv_output;
+    conv.execute(input, weights, biases, conv_output);
 
     // 应用激活函数
-    activation.apply(output);
+    activation.apply(conv_output);
 
     // 执行池化操作
     std::vector<std::vector<std::vector<float>>> pooled_output;
-    pooling.execute(output, pooled_output);
+    pooling.execute(conv_output, pooled_output);
 
     // 执行批量归一化
     std::vector<std::vector<std::vector<float>>> normalized_output;

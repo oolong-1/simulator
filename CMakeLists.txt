@@ -14,10 +14,8 @@ include_directories(${CMAKE_SOURCE_DIR}/include ${OpenCV_INCLUDE_DIRS})
 # 添加源文件
 file(GLOB SOURCES
     ${CMAKE_SOURCE_DIR}/src/*.cpp
+    ${CMAKE_SOURCE_DIR}/main.cpp
 )
-
-# 添加main.cpp文件
-list(APPEND SOURCES ${CMAKE_SOURCE_DIR}/main.cpp)
 
 # 设置可执行文件的输出目录
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)

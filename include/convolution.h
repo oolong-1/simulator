@@ -3,17 +3,17 @@
 #define CONVOLUTION_H
 
 #include <vector>
+#include "cim_array.h"
+#include "adder_tree.h"
 
-// 定义卷积参数结构
 struct Conv2DParams {
-    int in_channels;
-    int out_channels;
+    int input_channels;
+    int output_channels;
     int kernel_size;
     int stride;
     int padding;
 };
 
-// 定义卷积类
 class Convolution {
 public:
     Convolution();
@@ -25,7 +25,8 @@ public:
 
 private:
     Conv2DParams params_;
+    mutable CIMArray cim_array_;
+    mutable AdderTree adder_tree_;
 };
 
 #endif // CONVOLUTION_H
-

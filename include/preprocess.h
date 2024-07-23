@@ -1,28 +1,21 @@
-// preprocess.h
+// include/preprocess.h
 #ifndef PREPROCESS_H
 #define PREPROCESS_H
 
-#include <opencv2/opencv.hpp>
 #include <vector>
 
-// 定义预处理类
 class Preprocess {
 public:
-    // 构造函数，初始化归一化因子和目标图像尺寸
-    Preprocess(float scaleFactor, const cv::Size& newSize);
-    
-    // 归一化函数，将图像像素值转换到[0, 1]范围
-    void normalize(cv::Mat& image) const;
-    
-    // 图像缩放函数，将图像调整到指定尺寸
-    void resize(cv::Mat& image) const;
-    
-    // 预处理函数，先缩放图像，再进行归一化
-    void preprocess(const cv::Mat& input, cv::Mat& output) const;
+    Preprocess(int tile_size, int pad_value);
+    void tileReadControl(const std::vector<std::vector<float>>& input, std::vector<std::vector<float>>& tiled_output);
+    void padControl(const std::vector<std::vector<float>>& input, std::vector<std::vector<float>>& padded_output);
+    void lineBufferReadWriteControl(const std::vector<std::vector<float>>& input, std::vector<std::vector<float>>& buffer);
+    void slidingWindowReadControl(const std::vector<std::vector<float>>& input, std::vector<std::vector<std::vector<float>>>& windowed_output);
+    void dataFormatTransform(const std::vector<std::vector<float>>& input, std::vector<std::vector<float>>& transformed_output);
 
 private:
-    float scaleFactor_;  // 归一化因子
-    cv::Size newSize_;   // 目标图像尺寸
+    int tile_size_;
+    int pad_value_;
 };
 
 #endif // PREPROCESS_H
