@@ -3,7 +3,7 @@ CXXFLAGS = -I/usr/include/opencv4 -I./include -std=c++11
 LDFLAGS = -L/usr/local/lib -lopencv_core -lopencv_imgproc -lopencv_imgcodecs
 
 TARGET = test
-SRC = src/main.cpp src/preprocess.cpp src/convolution.cpp src/activation.cpp
+SRC = src/main.cpp src/preprocess.cpp src/convolution.cpp src/activation.cpp src/pre_conv_act.cpp
 
 all: $(TARGET)
 
@@ -12,4 +12,3 @@ $(TARGET): $(SRC)
 
 clean:
 	rm -f $(TARGET)
-
