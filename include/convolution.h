@@ -3,30 +3,22 @@
 #define CONVOLUTION_H
 
 #include <vector>
-#include "cim_array.h"
-#include "adder_tree.h"
-
-struct Conv2DParams {
-    int input_channels;
-    int output_channels;
-    int kernel_size;
-    int stride;
-    int padding;
-};
 
 class Convolution {
 public:
-    Convolution();
-    void setParams(const Conv2DParams& params);
-    void execute(const std::vector<std::vector<std::vector<float>>>& input,
-                 const std::vector<std::vector<std::vector<std::vector<float>>>>& weights,
-                 const std::vector<float>& biases,
-                 std::vector<std::vector<std::vector<float>>>& output) const;
+    Convolution(int input_channels, int output_channels, int kernel_size, int stride, int padding);
+
+    void execute(const std::vector<std::vector<float>>& input_col,
+                 const std::vector<std::vector<float>>& filters,
+                 std::vector<std::vector<float>>& output,
+                 const std::vector<float>& biases);
 
 private:
-    Conv2DParams params_;
-    mutable CIMArray cim_array_;
-    mutable AdderTree adder_tree_;
+    int input_channels_;
+    int output_channels_;
+    int kernel_size_;
+    int stride_;
+    int padding_;
 };
 
 #endif // CONVOLUTION_H

@@ -1,74 +1,34 @@
 // src/preprocess.cpp
-#include "../include/preprocess.h"
+#include "preprocess.h"
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
-// 构造函数，初始化tile大小和填充值
-Preprocess::Preprocess(int tile_size, int pad_value) : tile_size_(tile_size), pad_value_(pad_value) {}
+Preprocess::Preprocess(int pad_value, int kernel_size, int stride)
+    : pad_value_(pad_value), kernel_size_(kernel_size), stride_(stride) {}
 
-// Tile读取控制
-void Preprocess::tileReadControl(const std::vector<std::vector<float>>& input, std::vector<std::vector<float>>& tiled_output) {
-    int height = input.size();
-    int width = input[0].size();
-    int new_height = (height + tile_size_ - 1) / tile_size_;
-    int new_width = (width + tile_size_ - 1) / tile_size_;
-    
-    tiled_output.resize(new_height * tile_size_, std::vector<float>(new_width * tile_size_, 0));
-    
-    for (int i = 0; i < height; ++i) {
-        for (int j = 0; j < width; ++j) {
-            tiled_output[i][j] = input[i][j];
-        }
-    }
-}
+void Preprocess::img2col(const std::vector<std::vector<std::vector<float>>>& input, std::vector<std::vector<float>>& col_output) {
+    int channels = input.size();
+    int height = input[0].size();
+    int width = input[0][0].size();
+    int output_height = (height - kernel_size_) / stride_ + 1;
+    int output_width = (width - kernel_size_) / stride_ + 1;
 
-// Pad控制
-void Preprocess::padControl(const std::vector<std::vector<float>>& input, std::vector<std::vector<float>>& padded_output) {
-    int height = input.size();
-    int width = input[0].size();
-    int padded_height = height + 2 * pad_value_;
-    int padded_width = width + 2 * pad_value_;
-    
-    padded_output.resize(padded_height, std::vector<float>(padded_width, 0));
-    
-    for (int i = 0; i < height; ++i) {
-        for (int j = 0; j < width; ++j) {
-            padded_output[i + pad_value_][j + pad_value_] = input[i][j];
-        }
-    }
-}
+    int col_vector_size = channels * kernel_size_ * kernel_size_;
+    col_output.resize(col_vector_size, std::vector<float>(output_height * output_width, 0));
 
-// Line buffer读写控制
-void Preprocess::lineBufferReadWriteControl(const std::vector<std::vector<float>>& input, std::vector<std::vector<float>>& buffer) {
-    buffer = input; // 简单复制，可以根据实际需求进行更复杂的操作
-}
-
-// 划窗数据读取控制
-void Preprocess::slidingWindowReadControl(const std::vector<std::vector<float>>& input, std::vector<std::vector<std::vector<float>>>& windowed_output) {
-    int height = input.size();
-    int width = input[0].size();
-    int window_size = 3; // 例如3x3窗口
-    for (int i = 0; i <= height - window_size; i += window_size) {
-        for (int j = 0; j <= width - window_size; j += window_size) {
-            std::vector<std::vector<float>> window(window_size, std::vector<float>(window_size, 0));
-            for (int wi = 0; wi < window_size; ++wi) {
-                for (int wj = 0; wj < window_size; ++wj) {
-                    window[wi][wj] = input[i + wi][j + wj];
+    for (int y = 0; y < output_height; ++y) {
+        for (int x = 0; x < output_width; ++x) {
+            int col_index = y * output_width + x;
+            int col_count = 0;
+            for (int c = 0; c < channels; ++c) {
+                for (int ky = 0; ky < kernel_size_; ++ky) {
+                    for (int kx = 0; kx < kernel_size_; ++kx) {
+                        int in_y = y * stride_ + ky;
+                        int in_x = x * stride_ + kx;
+                        col_output[col_count++][col_index] = input[c][in_y][in_x];
+                    }
                 }
             }
-            windowed_output.push_back(window);
-        }
-    }
-}
-
-// 数据格式变换
-void Preprocess::dataFormatTransform(const std::vector<std::vector<float>>& input, std::vector<std::vector<float>>& transformed_output) {
-    int height = input.size();
-    int width = input[0].size();
-    transformed_output.resize(width, std::vector<float>(height, 0));
-    for (int i = 0; i < height; ++i) {
-        for (int j = 0; j < width; ++j) {
-            transformed_output[j][i] = input[i][j];
         }
     }
 }

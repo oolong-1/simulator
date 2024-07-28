@@ -1,45 +1,46 @@
 // src/convolution.cpp
-#include "../include/convolution.h"
+#include "convolution.h"
+#include <vector>
 #include <iostream>
+#include <cmath> 
 
-Convolution::Convolution() : cim_array_(3) {} // 假设CIM阵列大小为3
+Convolution::Convolution(int input_channels, int output_channels, int kernel_size, int stride, int padding)
+    : input_channels_(input_channels), output_channels_(output_channels), kernel_size_(kernel_size),
+      stride_(stride), padding_(padding) {}
 
-void Convolution::setParams(const Conv2DParams& params) {
-    params_ = params;
-}
+void Convolution::execute(const std::vector<std::vector<float>>& input_col,
+                          const std::vector<std::vector<float>>& filters,
+                          std::vector<std::vector<float>>& output,
+                          const std::vector<float>& biases) {
+    int num_filters = filters.size();
+    int num_windows = input_col[0].size();
 
-void Convolution::execute(const std::vector<std::vector<std::vector<float>>>& input,
-                          const std::vector<std::vector<std::vector<std::vector<float>>>>& weights,
-                          const std::vector<float>& biases,
-                          std::vector<std::vector<std::vector<float>>>& output) const {
-    int output_height = (input[0].size() - params_.kernel_size + 2 * params_.padding) / params_.stride + 1;
-    int output_width = (input[0][0].size() - params_.kernel_size + 2 * params_.padding) / params_.stride + 1;
+    // 初始化输出矩阵尺寸
+    output.resize(num_filters, std::vector<float>(num_windows, 0));
 
-    output.resize(params_.output_channels, std::vector<std::vector<float>>(output_height, std::vector<float>(output_width, 0)));
-
-    for (int oc = 0; oc < params_.output_channels; ++oc) {
-        for (int oh = 0; oh < output_height; ++oh) {
-            for (int ow = 0; ow < output_width; ++ow) {
-                std::vector<float> sum(params_.input_channels * params_.kernel_size * params_.kernel_size, 0);
-
-                for (int ic = 0; ic < params_.input_channels; ++ic) {
-                    for (int kh = 0; kh < params_.kernel_size; ++kh) {
-                        for (int kw = 0; kw < params_.kernel_size; ++kw) {
-                            int ih = oh * params_.stride + kh - params_.padding;
-                            int iw = ow * params_.stride + kw - params_.padding;
-
-                            if (ih >= 0 && ih < input[ic].size() && iw >= 0 && iw < input[ic][0].size()) {
-                                cim_array_.loadVector(input[ic][ih]);
-                                std::vector<float> weight_vec = weights[oc][ic][kh];
-                                cim_array_.loadMatrix({weight_vec});
-                                sum.push_back(adder_tree_.sum(cim_array_.multiply()));
-                            }
-                        }
-                    }
-                }
-
-                output[oc][oh][ow] = adder_tree_.sum(sum) + biases[oc];
+    // 执行矩阵乘法
+    for (int f = 0; f < num_filters; ++f) {
+        for (int w = 0; w < num_windows; ++w) {
+            float sum = 0.0f;
+            for (int k = 0; k < filters[f].size(); ++k) {
+                sum += filters[f][k] * input_col[k][w];
             }
+            sum += biases[f];
+            output[f][w] = sum;
         }
+    }
+
+    // 重构输出特征图
+    int output_height = std::sqrt(num_windows);
+    int output_width = output_height;  // 假设输出为方形
+    for (int f = 0; f < num_filters; ++f) {
+        std::cout << "Feature Map " << f << ":\n";
+        for (int y = 0; y < output_height; ++y) {
+            for (int x = 0; x < output_width; ++x) {
+                std::cout << output[f][y * output_width + x] << " ";
+            }
+            std::cout << "\n";
+        }
+        std::cout << "\n";
     }
 }
