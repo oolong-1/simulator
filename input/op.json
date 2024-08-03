@@ -1,0 +1,102 @@
+[
+	{
+		"op": 1,
+		"pre": 1,
+		"Img2col": 1,
+		"pad": 1,
+		"cim": 1,
+		"conv": 1,
+		"fc": 0,
+		"vpu": 1,
+		"act": 1,
+		"pool": 1,
+		"kernel_size": 2,
+		"kernel_stride": 1,
+		"pad_value": 0,
+		"biases": [0, 1],
+		"act_type": "SIGMOID",
+		"pool_type": "MAX",
+		"pool_size": 2,
+		"pool_stride": 2,
+		"filters": [
+			[
+				[
+					[1, 0],
+					[-1, 0]
+				],
+				[
+					[1, 0],
+					[-1, 0]
+				],
+				[
+					[1, 0],
+					[-1, 0]
+				]
+			],
+			[
+				[
+					[0, 1],
+					[0, -1]
+				],
+				[
+					[0, 1],
+					[0, -1]
+				],
+				[
+					[0, 1],
+					[0, -1]
+				]
+			]
+		]
+	},
+	{
+		"op": 2,
+		"pre": 1,
+		"Img2col": 1,
+		"pad": 1,
+		"cim": 1,
+		"conv": 1,
+		"fc": 0,
+		"vpu": 1,
+		"act": 1,
+		"pool": 1,
+		"kernel_size": 2,
+		"kernel_stride": 1,
+		"pad_value": 0,
+		"biases": [0, 1],
+		"act_type": "SIGMOID",
+		"pool_type": "MAX",
+		"pool_size": 2,
+		"pool_stride": 2,
+		"filters": [
+			[
+				[
+					[1, 0],
+					[-1, 0]
+				],
+				[
+					[1, 0],
+					[-1, 0]
+				],
+				[
+					[1, 0],
+					[-1, 0]
+				]
+			],
+			[
+				[
+					[0, 1],
+					[0, -1]
+				],
+				[
+					[0, 1],
+					[0, -1]
+				],
+				[
+					[0, 1],
+					[0, -1]
+				]
+			]
+		]
+	}
+]
