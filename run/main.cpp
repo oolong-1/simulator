@@ -41,6 +41,8 @@ int main() {
     file >> data;
     std::cout << "文件成功解析" << std::endl;
 
+	// 遍历op
+
     for (const auto& config : data) {
         int op = config.at("op");
         int pre = config.at("pre");
